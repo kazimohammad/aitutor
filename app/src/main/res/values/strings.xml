@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Porashona AI</string>
+    <string name="tagline">স্মার্ট এআই স্টাডি টিউটর</string>
+    <string name="nctb_curriculum">জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড (NCTB)</string>
+    <string name="scan_book_title">বই স্ক্যান করুন</string>
+    <string name="ask_question_title">প্রশ্ন করুন</string>
+    <string name="exam_prep_title">পরীক্ষার প্রস্তুতি</string>
+    <string name="todays_practice_title">আজকের অনুশীলন</string>
+    <string name="continue_learning">পড়া চালিয়ে যান</string>
+    <string name="memorize_line_by_line">এক লাইন করে মুখস্থ শিখি</string>
+    <string name="exam_presentation">পরীক্ষার খাতায় কীভাবে লিখব?</string>
+</resources>

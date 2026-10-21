@@ -1,0 +1,6 @@
+{
+  "name": "Porashona AI",
+  "description": "Smart AI Study Tutor for Bangladeshi Students in Classes 5 to 10 (NCTB Curriculum)",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
