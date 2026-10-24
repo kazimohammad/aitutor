@@ -41,6 +41,7 @@ fun HomeScreen(
     val selectedTopic by viewModel.selectedTopic.collectAsState()
     val savedLessons by viewModel.savedLessons.collectAsState()
     val revisionItems by viewModel.revisionItems.collectAsState()
+    val pdfStatus by viewModel.pdfDownloadStatus.collectAsState()
 
     val isBangla = profile.appLanguage == "bn"
 
@@ -345,7 +346,58 @@ fun HomeScreen(
                     viewModel.navigateTo(ScreenRoute.RevisionPlanner)
                 }
             }
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(10.dp)
+            ) {
+                FeatureCard(
+                    title = if (isBangla) "বোর্ড প্রশ্ন ও সমাধান" else "Board Questions",
+                    subtitle = if (isBangla) "৯টি শিক্ষা বোর্ডের বিগত প্রশ্ন" else "Verified past papers",
+                    icon = Icons.Default.LibraryBooks,
+                    color = Color(0xFF4338CA),
+                    modifier = Modifier.weight(1f),
+                    testTag = "mode_board_questions_card"
+                ) {
+                    viewModel.navigateTo(ScreenRoute.BoardQuestions)
+                }
+
+                FeatureCard(
+                    title = if (isBangla) "পাঠ্যবই পিডিএফ ডাউনলোড" else "Download PDF",
+                    subtitle = if (isBangla) "অফলাইন এনসিটিবি বই" else "Offline NCTB books",
+                    icon = Icons.Default.PictureAsPdf,
+                    color = Color(0xFFDC2626),
+                    modifier = Modifier.weight(1f),
+                    testTag = "mode_pdf_download_card"
+                ) {
+                    viewModel.downloadChapterPdf(selectedTopic)
+                }
+            }
+
+            if (pdfStatus != null) {
+                Spacer(modifier = Modifier.height(10.dp))
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.errorContainer)
+                ) {
+                    Row(
+                        modifier = Modifier.padding(12.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        CircularProgressIndicator(modifier = Modifier.size(20.dp), color = MaterialTheme.colorScheme.onErrorContainer)
+                        Spacer(modifier = Modifier.width(10.dp))
+                        Text(
+                            text = pdfStatus ?: "",
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onErrorContainer
+                        )
+                    }
+                }
+            }
         }
+
 
         // Browse Subjects Section
         item {

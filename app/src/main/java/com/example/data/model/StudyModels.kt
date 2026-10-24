@@ -92,3 +92,19 @@ data class MemoryHint(
     val description: String,
     val example: String
 )
+
+data class BoardQuestion(
+    val id: String,
+    val boardName: String, // "ঢাকা বোর্ড", "রাজশাহী বোর্ড", etc.
+    val year: Int,
+    val classLevel: Int,
+    val subjectName: String,
+    val chapterName: String,
+    val questionType: QuestionType,
+    val stimulus: String?, // উদ্দীপক
+    val questionText: String,
+    val modelAnswer: String,
+    val isVerifiedBoardQuestion: Boolean, // true = Verified past board question, false = AI-generated board-style practice
+    val sourceReference: String
+)
+

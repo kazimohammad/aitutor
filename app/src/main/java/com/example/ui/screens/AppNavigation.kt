@@ -197,6 +197,7 @@ fun AppNavigation(
                 ScreenRoute.SubjectChapter -> SubjectChapterScreen(viewModel = viewModel)
                 ScreenRoute.LineByLine -> LineByLineScreen(viewModel = viewModel)
                 ScreenRoute.ExamQuestions -> ExamQuestionsScreen(viewModel = viewModel)
+                ScreenRoute.BoardQuestions -> BoardQuestionsScreen(viewModel = viewModel)
                 ScreenRoute.McqQuiz -> McqQuizScreen(viewModel = viewModel)
                 ScreenRoute.RevisionPlanner -> RevisionPlannerScreen(viewModel = viewModel)
                 ScreenRoute.Progress -> ProgressScreen(viewModel = viewModel)
